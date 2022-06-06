@@ -31,6 +31,9 @@ class UserAdapter(val context: Context, val users: Users) :
         Picasso.get().load(users[position].avatar_url).placeholder(R.drawable.loading).into(holder.avatarIm)
         holder.loginTv.text = users[position].login
         holder.html_url_tv.text = users[position].repos_url
+        holder.typeTv.text = users[position].type
+        holder.idTv.text = "ID:" + users[position].id.toString()
+
 
         holder.githubBtn.setOnClickListener {
             val urlGithub = users[position].repos_url
@@ -50,6 +53,8 @@ class UserAdapter(val context: Context, val users: Users) :
         var loginTv: TextView = itemView.findViewById<View>(R.id.loginTv) as TextView
         var html_url_tv: TextView = itemView.findViewById<View>(R.id.html_url_tv) as TextView
         var githubBtn: Button = itemView.findViewById(R.id.githubBtn) as Button
+        var typeTv: TextView = itemView.findViewById(R.id.typeTv) as TextView
+        var idTv: TextView = itemView.findViewById(R.id.idTv) as TextView
 
 
     }

@@ -20,7 +20,7 @@ class GitHubActivity : AppCompatActivity() {
     var gitHubsItem = arrayOf<GithubModel>()
     val githubs1 = Githubs()
 
-    private var url = "https://api.github.com/users/mojombo/repos"
+    //private var url = "https://api.github.com/users/mojombo/repos" (test)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,7 @@ class GitHubActivity : AppCompatActivity() {
 
         val urlGithub = intent.getStringExtra("repos_url")
 
-        val stringRequest = StringRequest(url, {
+        val stringRequest = StringRequest(urlGithub, {
             val gsonBuilder = GsonBuilder()
             val gson = gsonBuilder.create()
             gitHubsItem = gson.fromJson(it,Array<GithubModel>::class.java)

@@ -7,16 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.nathit.github_user_list.GitHubActivity
 import com.nathit.github_user_list.Githubs
-import com.nathit.github_user_list.Model.UserModel
 import com.nathit.github_user_list.R
-import com.nathit.github_user_list.Users
-import com.squareup.picasso.Picasso
-import de.hdodenhof.circleimageview.CircleImageView
+import java.text.SimpleDateFormat
 
 class GithubAdapter(val context: Context, val githubs: Githubs) :
     RecyclerView.Adapter<GithubAdapter.MyHolder>() {
@@ -29,9 +24,30 @@ class GithubAdapter(val context: Context, val githubs: Githubs) :
 
     override fun onBindViewHolder(holder: GithubAdapter.MyHolder, position: Int) {
         ///TODO("onBindViewHolder")
-        //Picasso.get().load(githubs[position].avatar_url).placeholder(R.drawable.loading).into(holder.avatarIm)
-        holder.loginTv.text = githubs[position].name
-        holder.html_url_tv.text = githubs[position].name
+
+        val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+        val formatter = SimpleDateFormat("dd.MM.yyyy HH:mm a")
+
+        val output_created_at : String = formatter.format(parser.parse(githubs[position].created_at))
+        val output_updated_at : String = formatter.format(parser.parse(githubs[position].updated_at))
+        val output_pushed_at : String = formatter.format(parser.parse(githubs[position].pushed_at))
+
+        holder.nameTv.text = githubs[position].name
+        holder.descriptionTv.text = githubs[position].description
+        holder.languageTv.text = githubs[position].language
+        holder.createTv.text = output_created_at
+        holder.updateTv.text = output_updated_at
+        holder.pushedTv.text = output_pushed_at
+        holder.starTv.text = githubs[position].stargazers_count
+        holder.forkTv.text = githubs[position].forks_count
+        holder.visibilityTv.text = githubs[position].visibility
+
+        holder.click_to_github.setOnClickListener {
+            val urlGithub = githubs[position].html_url
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(urlGithub)
+            context.startActivity(intent)
+        }
 
     }
 
@@ -41,11 +57,16 @@ class GithubAdapter(val context: Context, val githubs: Githubs) :
     }
 
     inner class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var avatarIm: CircleImageView = itemView.findViewById<View>(R.id.avatarIm) as CircleImageView
-        var loginTv: TextView = itemView.findViewById<View>(R.id.loginTv) as TextView
-        var html_url_tv: TextView = itemView.findViewById<View>(R.id.html_url_tv) as TextView
-
-
+        var nameTv: TextView = itemView.findViewById<View>(R.id.nameTv) as TextView
+        var descriptionTv: TextView = itemView.findViewById<View>(R.id.descriptionTv) as TextView
+        var languageTv: TextView = itemView.findViewById<View>(R.id.languageTv) as TextView
+        var createTv: TextView = itemView.findViewById<View>(R.id.createTv) as TextView
+        var updateTv: TextView = itemView.findViewById<View>(R.id.updateTv) as TextView
+        var pushedTv: TextView = itemView.findViewById<View>(R.id.pushedTv) as TextView
+        var starTv: TextView = itemView.findViewById<View>(R.id.starTv) as TextView
+        var forkTv: TextView = itemView.findViewById<View>(R.id.forkTv) as TextView
+        var visibilityTv: TextView = itemView.findViewById<View>(R.id.visibilityTv) as TextView
+        var click_to_github: Button = itemView.findViewById<View>(R.id.click_to_github) as Button
     }
 
 }
