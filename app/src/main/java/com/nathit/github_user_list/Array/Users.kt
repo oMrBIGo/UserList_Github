@@ -1,4 +1,4 @@
-package com.nathit.github_user_list
+package com.nathit.github_user_list.Array
 
 import com.nathit.github_user_list.Model.UserModel
 

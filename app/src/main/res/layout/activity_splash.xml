@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.SplashActivity">
+
+    <!-- LinearLayout: Group View Logo and ProgressBar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- ImageView: Show"res/drawable" -->
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/Logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/github_gif" />
+
+        <!-- ProgressBar: Show"progressBar" Loading[%] -->
+        <ProgressBar
+            android:id="@+id/progressBar_splash"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:progress="50"
+            android:progressBackgroundTint="#A6A6A6"
+            android:progressTint="@color/teal_700" />
+
+        <!-- TextView: Show"TextView" -->
+        <TextView
+            android:id="@+id/valueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

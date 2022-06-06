@@ -1,15 +1,14 @@
-package com.nathit.github_user_list
+package com.nathit.github_user_list.Activity
 
-import android.graphics.Insets.add
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.GsonBuilder
 import com.nathit.github_user_list.Adapter.GithubAdapter
+import com.nathit.github_user_list.Array.Githubs
 import com.nathit.github_user_list.Model.GithubModel
 import com.nathit.github_user_list.databinding.ActivityGitHubBinding
 
@@ -27,6 +26,9 @@ class GitHubActivity : AppCompatActivity() {
         binding = ActivityGitHubBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val username = intent.getStringExtra("username")
+
+        supportActionBar!!.setTitle("Repositories by " + username)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val urlGithub = intent.getStringExtra("repos_url")

@@ -2,18 +2,15 @@ package com.nathit.github_user_list.Adapter
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.nathit.github_user_list.GitHubActivity
-import com.nathit.github_user_list.Model.UserModel
+import com.nathit.github_user_list.Activity.GitHubActivity
 import com.nathit.github_user_list.R
-import com.nathit.github_user_list.Users
+import com.nathit.github_user_list.Array.Users
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -39,6 +36,7 @@ class UserAdapter(val context: Context, val users: Users) :
             val urlGithub = users[position].repos_url
             val intent = Intent(context, GitHubActivity::class.java)
             intent.putExtra("repos_url",urlGithub)
+            intent.putExtra("username", users[position].login)
             context.startActivity(intent)
         }
     }

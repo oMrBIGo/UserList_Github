@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.nathit.github_user_list.Githubs
+import com.nathit.github_user_list.Array.Githubs
 import com.nathit.github_user_list.R
 import java.text.SimpleDateFormat
 
