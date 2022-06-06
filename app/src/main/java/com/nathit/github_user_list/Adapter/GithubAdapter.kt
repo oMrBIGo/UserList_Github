@@ -57,6 +57,7 @@ class GithubAdapter(val context: Context, val githubs: Githubs) :
     }
 
     inner class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        ///TODO("MyHolder")
         var nameTv: TextView = itemView.findViewById<View>(R.id.nameTv) as TextView
         var descriptionTv: TextView = itemView.findViewById<View>(R.id.descriptionTv) as TextView
         var languageTv: TextView = itemView.findViewById<View>(R.id.languageTv) as TextView

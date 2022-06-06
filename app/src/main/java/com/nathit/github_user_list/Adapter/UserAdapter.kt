@@ -31,6 +31,13 @@ class UserAdapter(val context: Context, val users: Users) :
         holder.typeTv.text = users[position].type
         holder.idTv.text = "ID:" + users[position].id.toString()
 
+        holder.html_url_tv.setOnClickListener {
+            val urlGithub = users[position].repos_url
+            val intent = Intent(context, GitHubActivity::class.java)
+            intent.putExtra("repos_url",urlGithub)
+            intent.putExtra("username", users[position].login)
+            context.startActivity(intent)
+        }
 
         holder.githubBtn.setOnClickListener {
             val urlGithub = users[position].repos_url
@@ -47,6 +54,7 @@ class UserAdapter(val context: Context, val users: Users) :
     }
 
     inner class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        ///TODO("MyHolder")
         var avatarIm: CircleImageView = itemView.findViewById<View>(R.id.avatarIm) as CircleImageView
         var loginTv: TextView = itemView.findViewById<View>(R.id.loginTv) as TextView
         var html_url_tv: TextView = itemView.findViewById<View>(R.id.html_url_tv) as TextView

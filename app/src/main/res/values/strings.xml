@@ -8,14 +8,14 @@
     <string name="id">ID:??</string>
     <string name="user_github_url">user github url:</string>
     <string name="click_to_repositories">Click to Repositories</string>
+    <string name="language">Language:</string>
+    <string name="description">description:</string>
+    <string name="repositories_name">Repositories Name:</string>
     <!-- github -->
     <string name="click_to_github">Click to Github</string>
     <string name="pushed_at">pushed at:</string>
     <string name="update_at">update at:</string>
     <string name="create_at">create at:</string>
-    <string name="language">Language:</string>
-    <string name="description">description:</string>
-    <string name="repositories_name">Repositories Name:</string>
     <string name="null_tv">-</string>
 
 </resources>
