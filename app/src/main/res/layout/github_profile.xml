@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@drawable/linear_bg"
-        android:elevation="8dp"
+        android:elevation="6dp"
         android:orientation="vertical"
         android:padding="10dp">
 
