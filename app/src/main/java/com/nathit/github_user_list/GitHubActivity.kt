@@ -1,9 +1,11 @@
 package com.nathit.github_user_list
 
+import android.graphics.Insets.add
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.GsonBuilder
@@ -16,7 +18,9 @@ class GitHubActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGitHubBinding
     var gitHubsItem = arrayOf<GithubModel>()
-    val githubs = Githubs()
+    val githubs1 = Githubs()
+
+    private var url = "https://api.github.com/users/mojombo/repos"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,14 +31,14 @@ class GitHubActivity : AppCompatActivity() {
 
         val urlGithub = intent.getStringExtra("repos_url")
 
-        val stringRequest = StringRequest(urlGithub, {
+        val stringRequest = StringRequest(url, {
             val gsonBuilder = GsonBuilder()
             val gson = gsonBuilder.create()
             gitHubsItem = gson.fromJson(it,Array<GithubModel>::class.java)
             gitHubsItem.forEach {
-                Githubs.add(it)
+                githubs1.add(it)
             }
-            val adapter = GithubAdapter(this,githubs)
+            val adapter = GithubAdapter(this,githubs1)
             binding.rv.layoutManager = LinearLayoutManager(this)
             binding.rv.adapter = adapter
         }, {

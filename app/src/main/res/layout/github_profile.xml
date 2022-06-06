@@ -4,23 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-        <!-- CircleImageView Avatar -->
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/avatarIm"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentTop="true"
-            android:elevation="6dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:src="@mipmap/ic_launcher"
-            app:civ_border_color="@color/white"
-            app:civ_border_width="2dp" />
-
         <LinearLayout
-            android:layout_below="@+id/avatarIm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"

@@ -29,9 +29,9 @@ class GithubAdapter(val context: Context, val githubs: Githubs) :
 
     override fun onBindViewHolder(holder: GithubAdapter.MyHolder, position: Int) {
         ///TODO("onBindViewHolder")
-        Picasso.get().load(githubs[position].avatar_url).placeholder(R.drawable.loading).into(holder.avatarIm)
-        holder.loginTv.text = githubs[position].login
-        holder.html_url_tv.text = githubs[position].repos_url
+        //Picasso.get().load(githubs[position].avatar_url).placeholder(R.drawable.loading).into(holder.avatarIm)
+        holder.loginTv.text = githubs[position].name
+        holder.html_url_tv.text = githubs[position].name
 
     }
 
